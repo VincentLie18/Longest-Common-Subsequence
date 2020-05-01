@@ -1,4 +1,4 @@
-def calculate_LCS(A, B):
+def LCS(A, B):
 	n = len(A)
 	m = len(B)
 	C = [[0 for i in range(0, m + 1)] for j in range(0, n + 1)]
@@ -6,10 +6,10 @@ def calculate_LCS(A, B):
 
 	for i in range(1, n + 1):
 		for j in range(1, m + 1):
-			if A[i - 1] == B[j - 1]:
+			if(A[i - 1] == B[j - 1]):
 				C[i][j] = C[i - 1][j - 1] + 1
 				D[i][j] = 0
-			elif C[i][j-1] >= C[i - 1][j]:
+			elif(C[i][j-1] >= C[i - 1][j]):
 				C[i][j] = C[i][j - 1]
 				D[i][j] = 1
 			else:
@@ -37,7 +37,7 @@ X = input()
 print("Masukkan string Y: ", end = "")
 Y = input()
 
-length, sequence = calculate_LCS(X, Y)
+length, sequence = LCS(X, Y)
 
 print("-----------------------------------------------------------")
 
